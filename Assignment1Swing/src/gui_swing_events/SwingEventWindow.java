@@ -8,12 +8,23 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class SwingEventWindow extends JFrame implements ActionListener, ItemListener{
+    //create two lables for titles
     private JLabel h1 = new JLabel();
     private JLabel h2 = new JLabel();
+
+    //create one input text field
     private JTextField inputT = new JTextField(40);
+
+    //create one button for calcuation
     private JButton cal = new JButton("Calculate");
+
+    //create a textfield to display result
     private JTextField resultT = new JTextField(40);
+    
+    //create a main panel
     private JPanel mainP = new JPanel();
+    
+    //create six seperate panels
     private JPanel pn1 = new JPanel();
     private JPanel pn2 = new JPanel();
     private JPanel pn3 = new JPanel();
@@ -26,10 +37,14 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     JRadioButton rAverage = new JRadioButton("Average");
     JRadioButton rMax= new JRadioButton("Maximum");
     JRadioButton rMin = new JRadioButton("Minimun");
+    
     //create a group for those four radio buttons
-
     ButtonGroup myGroup = new ButtonGroup();
+    
+    //create a initial viriable for result
     double result=0.0;
+    
+    //create a flag varible for radio button selection
     int rdoChecked = 1;
 
       public SwingEventWindow(){
@@ -39,8 +54,11 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             setVisible(true);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             resultT.setText("Result: " + result);
+            // set text for those two lables
             h1.setText("Excel Functions");
             h2.setText("Enter Your Numbers Seperated By Spaces");
+            
+            //add each components to seperate panels
 
             rSum.addActionListener(this);
             rAverage.addActionListener(this);
@@ -49,6 +67,7 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             cal.addActionListener(e -> {
                 itemStateChanged(null);
             });
+
 
             pn1.add(h1);
             pn2.add(h2);
@@ -60,11 +79,13 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             pn5.add(cal);
             pn6.add(resultT);
             
+            //add four radio buttons into button group
             myGroup.add(rSum);
             myGroup.add(rAverage);
             myGroup.add(rMax);
             myGroup.add(rMin);
 
+            //add all panels into the main panel
             mainP.add(pn1);
             mainP.add(pn2);
             mainP.add(pn3);
@@ -72,19 +93,22 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             mainP.add(pn5);
             mainP.add(pn6);
 
-            add(mainP);
-
-        
-      
+            //add the main panel
+            add(mainP);  
       
         }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        //get radio selection value by using e.getSource(), if AutoSum is selected, rdoChecked is set to 1
+        //same logic for all four buttons
+
         System.out.println("actionPerformed called");
+
         if (e.getSource() == rSum) {
             rdoChecked = 1;
-        } else if(e.getSource() == rAverage){
+        }else if(e.getSource() == rAverage){
             rdoChecked = 2;
         }else if(e.getSource() == rMax){
             rdoChecked = 3;
@@ -94,18 +118,23 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     }
     @Override
     public void itemStateChanged(ItemEvent e) {
+
+        //Initialize the excel object and get the user's input string from the first textfield
+
         System.out.println("itemStateChanged called");
+
         Excel excel = new Excel(inputT.getText());
-        if (rdoChecked==1){
+        //create if conditions for each radio button
+        if (rdoChecked==1){// if rdoChecked is equal to 1, call findTotal()
             result = excel.findTotal();
             resultT.setText(String.valueOf(result));
-        }else if (rdoChecked ==2){
+        }else if (rdoChecked ==2){// if rdoChecked is equal to 2, call findAverage()
             result = excel.findAverage();
             resultT.setText(String.valueOf(result));
-        }else if (rdoChecked ==3){
+        }else if (rdoChecked ==3){// if rdoChecked is equal to 3, call findMax()
             result = excel.findMax();
             resultT.setText(String.valueOf(result));
-        }else if (rdoChecked ==4){
+        }else if (rdoChecked ==4){// if rdoChecked is equal to 4, call findMin()
             result = excel.findMin();
             resultT.setText(String.valueOf(result));
         }

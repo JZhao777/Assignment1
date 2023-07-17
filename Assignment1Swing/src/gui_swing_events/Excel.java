@@ -9,7 +9,6 @@ public class Excel {
     public Excel(ArrayList<Double> arrayLst){
         arrayLst = new ArrayList<>();
         this.arrayLst = arrayLst;
-
     }
     public Excel(String myString){
         arrayLst = new ArrayList<>();
