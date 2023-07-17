@@ -29,10 +29,8 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     //create a group for those four radio buttons
 
     ButtonGroup myGroup = new ButtonGroup();
-    
-   
-
     double result=0.0;
+    int rdoChecked = 1;
 
       public SwingEventWindow(){
             
@@ -66,6 +64,7 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             mainP.add(pn6);
 
             add(mainP);
+
         
       
       
@@ -73,12 +72,33 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if (e.getSource() == rSum) {
+            rdoChecked = 1;
+        } else if(e.getSource() == rAverage){
+            rdoChecked = 2;
+        }else if(e.getSource() == rMax){
+            rdoChecked = 3;
+        }else if(e.getSource() == rMin){
+            rdoChecked = 4;
+        }
     }
-
     @Override
     public void itemStateChanged(ItemEvent e) {
-        
+        Excel excel = new Excel(inputT.getText());
+        if (rdoChecked==1){
+            result = excel.findTotal();
+            resultT.setText(String.valueOf(result));
+        }else if (rdoChecked ==2){
+            result = excel.findAverage();
+            resultT.setText(String.valueOf(result));
+        }else if (rdoChecked ==3){
+            result = excel.findMax();
+            resultT.setText(String.valueOf(result));
+        }else if (rdoChecked ==4){
+            result = excel.findMin();
+            resultT.setText(String.valueOf(result));
+        }
+
     }
        
     
