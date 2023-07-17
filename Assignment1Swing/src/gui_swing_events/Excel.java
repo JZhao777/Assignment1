@@ -8,7 +8,6 @@ public class Excel {
     private ArrayList<Double> arrayLst;
     public Excel(ArrayList<Double> arrayLst){
         this.arrayLst = arrayLst;
-
     }
     public Excel(String myString){
         String[] stringArray =myString.split(" ");
