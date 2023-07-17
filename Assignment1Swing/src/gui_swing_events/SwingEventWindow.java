@@ -1,7 +1,5 @@
 package gui_swing_events;
-
 import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -58,14 +56,12 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             h1.setText("Excel Functions");
             h2.setText("Enter Your Numbers Seperated By Spaces");
             
-            //add each components to seperate panels
-
             rSum.addActionListener(this);
             rAverage.addActionListener(this);
             rMax.addActionListener(this);
             rMin.addActionListener(this);
 
-
+//add each components to seperate panels
             pn1.add(h1);
             pn2.add(h2);
             pn3.add(inputT);
@@ -115,12 +111,10 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     }
     @Override
     public void itemStateChanged(ItemEvent e) {
-
-        //Initialize the excel object and get the user's input string from the first textfield
-
         System.out.println("itemStateChanged called");
-
+        //Initialize the excel object and get the user's input string from the first textfield
         Excel excel = new Excel(inputT.getText());
+        
         //create if conditions for each radio button
         if (rdoChecked==1){// if rdoChecked is equal to 1, call findTotal()
             result = excel.findTotal();
