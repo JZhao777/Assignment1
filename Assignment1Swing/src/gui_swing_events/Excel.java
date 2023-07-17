@@ -7,12 +7,14 @@ import java.util.List;
 public class Excel {
     private ArrayList<Double> arrayLst;
     public Excel(ArrayList<Double> arrayLst){
+        arrayLst = new ArrayList<>();
         this.arrayLst = arrayLst;
     }
     public Excel(String myString){
+        arrayLst = new ArrayList<>();
         String[] stringArray =myString.split(" ");
         List<String> strNumList = Arrays.asList(stringArray);
-        ArrayList<String> strNumArrayList = (ArrayList<String>) strNumList;
+        ArrayList<String> strNumArrayList =new ArrayList<String>(strNumList);
         
         for (int i = 0; i< strNumArrayList.size();i++){
              String element = strNumArrayList.get(i);
