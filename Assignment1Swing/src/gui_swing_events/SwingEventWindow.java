@@ -41,6 +41,12 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             resultT.setText("Result: " + result);
             h1.setText("Excel Functions");
             h2.setText("Enter Your Numbers Seperated By Spaces");
+
+            rSum.addActionListener(this);
+            rAverage.addActionListener(this);
+            rMax.addActionListener(this);
+            rMin.addActionListener(this);
+
             pn1.add(h1);
             pn2.add(h2);
             pn3.add(inputT);
@@ -72,6 +78,7 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        System.out.println("actionPerformed called");
         if (e.getSource() == rSum) {
             rdoChecked = 1;
         } else if(e.getSource() == rAverage){
@@ -84,6 +91,7 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     }
     @Override
     public void itemStateChanged(ItemEvent e) {
+        System.out.println("itemStateChanged called");
         Excel excel = new Excel(inputT.getText());
         if (rdoChecked==1){
             result = excel.findTotal();
