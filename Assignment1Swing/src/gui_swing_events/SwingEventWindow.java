@@ -60,11 +60,13 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             rAverage.addActionListener(this);
             rMax.addActionListener(this);
             rMin.addActionListener(this);
+            // For some reason, we encountered issue while runing this part. after some rearch online, 
+            //we found we can fix this error by manually calling it
             cal.addActionListener(e -> {
                 itemStateChanged(null);
             });
 
-//add each components to seperate panels
+        //add each components to different panels
             pn1.add(h1);
             pn2.add(h2);
             pn3.add(inputT);
@@ -92,15 +94,13 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             //add the main panel
             add(mainP);  
       
-        }
+      }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         //get radio selection value by using e.getSource(), if AutoSum is selected, rdoChecked is set to 1
         //same logic for all four buttons
-
-        System.out.println("actionPerformed called");
 
         if (e.getSource() == rSum) {
             rdoChecked = 1;
@@ -114,7 +114,7 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     }
     @Override
     public void itemStateChanged(ItemEvent e) {
-        System.out.println("itemStateChanged called");
+       
         //Initialize the excel object and get the user's input string from the first textfield
         Excel excel = new Excel(inputT.getText());
         
