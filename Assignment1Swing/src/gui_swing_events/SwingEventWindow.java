@@ -46,6 +46,9 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             rAverage.addActionListener(this);
             rMax.addActionListener(this);
             rMin.addActionListener(this);
+            cal.addActionListener(e -> {
+                itemStateChanged(null);
+            });
 
             pn1.add(h1);
             pn2.add(h2);
