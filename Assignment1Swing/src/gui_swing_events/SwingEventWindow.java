@@ -26,9 +26,10 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     JRadioButton rAverage = new JRadioButton("Average");
     JRadioButton rMax= new JRadioButton("Maximum");
     JRadioButton rMin = new JRadioButton("Minimun");
+    //create a group for those four radio buttons
 
     ButtonGroup myGroup = new ButtonGroup();
-     
+    
    
 
     double result=0.0;
