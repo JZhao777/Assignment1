@@ -126,16 +126,16 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
         //create if conditions for each radio button
         if (rdoChecked==1){// if rdoChecked is equal to 1, call findTotal()
             result = excel.findTotal();
-            resultT.setText(String.valueOf(result));
+            resultT.setText("Result: "+ String.valueOf(result));
         }else if (rdoChecked ==2){// if rdoChecked is equal to 2, call findAverage()
             result = excel.findAverage();
-            resultT.setText(String.valueOf(result));
+            resultT.setText("Result: "+ String.valueOf(result));
         }else if (rdoChecked ==3){// if rdoChecked is equal to 3, call findMax()
             result = excel.findMax();
-            resultT.setText(String.valueOf(result));
+            resultT.setText("Result: "+ String.valueOf(result));
         }else if (rdoChecked ==4){// if rdoChecked is equal to 4, call findMin()
             result = excel.findMin();
-            resultT.setText(String.valueOf(result));
+            resultT.setText("Result: "+ String.valueOf(result));
         }
 
     }
