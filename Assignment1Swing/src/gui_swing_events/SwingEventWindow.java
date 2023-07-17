@@ -68,7 +68,7 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
                 itemStateChanged(null);
             });
 
-            mainP.setLayout(new GridLayout(6, 1)); // 6 rows, 1 column
+            mainP.setLayout(new GridLayout(6, 1)); // use GridLayout: 6 rows, 1 column
 
         //add each components to different panels
 
