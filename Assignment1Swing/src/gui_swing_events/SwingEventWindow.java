@@ -59,6 +59,13 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             h2.setText("Enter Your Numbers Seperated By Spaces");
             
             //add each components to seperate panels
+
+            rSum.addActionListener(this);
+            rAverage.addActionListener(this);
+            rMax.addActionListener(this);
+            rMin.addActionListener(this);
+
+
             pn1.add(h1);
             pn2.add(h2);
             pn3.add(inputT);
@@ -90,8 +97,12 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         //get radio selection value by using e.getSource(), if AutoSum is selected, rdoChecked is set to 1
         //same logic for all four buttons
+
+        System.out.println("actionPerformed called");
+
         if (e.getSource() == rSum) {
             rdoChecked = 1;
         }else if(e.getSource() == rAverage){
@@ -104,7 +115,11 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     }
     @Override
     public void itemStateChanged(ItemEvent e) {
+
         //Initialize the excel object and get the user's input string from the first textfield
+
+        System.out.println("itemStateChanged called");
+
         Excel excel = new Excel(inputT.getText());
         //create if conditions for each radio button
         if (rdoChecked==1){// if rdoChecked is equal to 1, call findTotal()
