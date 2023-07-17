@@ -15,7 +15,6 @@ public class Excel {
         String[] stringArray =myString.split(" ");
         List<String> strNumList = Arrays.asList(stringArray);
         ArrayList<String> strNumArrayList =new ArrayList<String>(strNumList);
-        
         for (int i = 0; i< strNumArrayList.size();i++){
              String element = strNumArrayList.get(i);
              Double dElement = Double.valueOf(element);

@@ -1,5 +1,4 @@
 package gui_swing_events;
-
 import javax.swing.*;
 
 import java.awt.GridLayout;
@@ -59,17 +58,19 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             h1.setText("Excel Functions");
             h2.setText("Enter Your Numbers Seperated By Spaces");
             
-            //add each components to seperate panels
-
             rSum.addActionListener(this);
             rAverage.addActionListener(this);
             rMax.addActionListener(this);
             rMin.addActionListener(this);
+            // For some reason, we encountered issue while runing this part. after some rearch online, 
+            //we found we can fix this error by manually calling it
             cal.addActionListener(e -> {
                 itemStateChanged(null);
             });
 
             mainP.setLayout(new GridLayout(6, 1)); // 6 rows, 1 column
+
+        //add each components to different panels
 
             pn1.add(h1);
             pn2.add(h2);
@@ -98,15 +99,13 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
             //add the main panel
             add(mainP);  
       
-        }
+      }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         //get radio selection value by using e.getSource(), if AutoSum is selected, rdoChecked is set to 1
         //same logic for all four buttons
-
-        System.out.println("actionPerformed called");
 
         if (e.getSource() == rSum) {
             rdoChecked = 1;
@@ -120,12 +119,10 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     }
     @Override
     public void itemStateChanged(ItemEvent e) {
-
+       
         //Initialize the excel object and get the user's input string from the first textfield
-
-        System.out.println("itemStateChanged called");
-
         Excel excel = new Excel(inputT.getText());
+        
         //create if conditions for each radio button
         if (rdoChecked==1){// if rdoChecked is equal to 1, call findTotal()
             result = excel.findTotal();
