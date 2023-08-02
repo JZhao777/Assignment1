@@ -33,7 +33,7 @@ public class SwingEventWindow extends JFrame implements ActionListener, ItemList
     private JPanel pn6 = new JPanel();
 
     //radio buttons
-    JRadioButton rSum = new JRadioButton("AutoSum");
+    JRadioButton rSum = new JRadioButton("AutoSum", true);
     JRadioButton rAverage = new JRadioButton("Average");
     JRadioButton rMax= new JRadioButton("Maximum");
     JRadioButton rMin = new JRadioButton("Minimun");
